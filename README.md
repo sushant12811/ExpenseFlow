@@ -34,7 +34,7 @@
 
 ## Installation
 Clone the repository:
-git clone https://github.com/sushant12811/ExpressFlow.git
+git clone https://github.com/sushant12811/ExpenseFlow.git
 
 Open ExpenseFlow.xcodeproj in Xcode
 
