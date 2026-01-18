@@ -1,6 +1,6 @@
 //
 //  ExpenseRowView.swift
-//  ExpenseTracker-IOS
+// Spendora
 //
 //  Created by Sushant Dhakal on 2026-01-12.
 //

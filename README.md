@@ -1,7 +1,7 @@
-# ExpenseFlow - App for expense tracker
+# Spendora - App for expense tracker
 
 ## Description
- ExpenseFlow app works as a tracker for the user who is interested in tracking down their money spend every days, weeks or months and years.
+ Spendora app works as a tracker for the user who is interested in tracking down their money spend every days, weeks or months and years.
  
  ## Features
  1. Simple and clean interface.
@@ -30,7 +30,7 @@
 Clone the repository:
 git clone https://github.com/sushant12811/ExpenseFlow.git
 
-Open ExpenseFlow.xcodeproj in Xcode
+Open Spendora.xcodeproj in Xcode
 
 Build and run on your simulator or device
 
