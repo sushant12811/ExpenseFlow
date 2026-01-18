@@ -27,6 +27,14 @@
 		029E05242EA308D7007B5B71 /* ExpenseTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpenseTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		0213C0C72F1C412E00C28643 /* Extension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Extension;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		029E05212EA308D7007B5B71 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -67,6 +75,7 @@
 		0294541A2F15EB3800074252 /* ExpenseFlow */ = {
 			isa = PBXGroup;
 			children = (
+				0213C0C72F1C412E00C28643 /* Extension */,
 				029454122F15EB3800074252 /* Model */,
 				029454172F15EB3800074252 /* View */,
 				029454142F15EB3800074252 /* Preview Content */,
@@ -106,6 +115,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				0213C0C72F1C412E00C28643 /* Extension */,
 			);
 			name = ExpenseTracker;
 			packageProductDependencies = (

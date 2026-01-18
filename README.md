@@ -19,13 +19,13 @@
  ## ScreenShots
  <table>
  <tr>
-  <td><img width="1206" height="2622" alt="1" src="https://github.com/user-attachments/assets/3003ec29-674a-465a-b2ec-2ade00301a98" width="300" height= "580" />
+  <td><img width="300" height="600" alt="1" src="https://github.com/user-attachments/assets/3003ec29-674a-465a-b2ec-2ade00301a98"  />
 </td>
-  <td> <img width="1206" height="2622" alt="2" src="https://github.com/user-attachments/assets/03073d17-29eb-4cd5-9030-7d89577c9355" width="300" height= "580" />
+  <td> <img width="300" height="600" alt="2" src="https://github.com/user-attachments/assets/03073d17-29eb-4cd5-9030-7d89577c9355"  />
 </td>
-  <td><img width="1206" height="2622" alt="3" src="https://github.com/user-attachments/assets/feb5f7f0-14c3-4e4c-bed0-e4e9251433b0" width="300" height= "580" />
+  <td><img width="300" height="600" alt="3" src="https://github.com/user-attachments/assets/feb5f7f0-14c3-4e4c-bed0-e4e9251433b0"  />
 </td>
-  <td><img width="1206" height="2622" alt="4" src="https://github.com/user-attachments/assets/0c92a918-2533-4de5-884f-46be46affcbd" width="300" height= "580" />
+  <td><img width="300" height="600" alt="4" src="https://github.com/user-attachments/assets/0c92a918-2533-4de5-884f-46be46affcbd" />
 </td>
 
  </tr>

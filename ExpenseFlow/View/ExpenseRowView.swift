@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ExpenseRowView: View {
     let expense : ExpenseModel
+    let currencySymbol : String
+    
     var body: some View {
             HStack(spacing: 12) {
                 ZStack {
@@ -30,7 +32,7 @@ struct ExpenseRowView: View {
                         .foregroundStyle(.secondary)
                 }
                 Spacer()
-                Text("$\(expense.amount, specifier: "%.2f")")
+                Text("\(currencySymbol) \(expense.amount, specifier: "%.2f")")
                     .font(.headline)
                     .foregroundStyle(expense.category.color)
             }
@@ -38,5 +40,5 @@ struct ExpenseRowView: View {
 }
 
 #Preview {
-    ExpenseRowView(expense: .sampleData[0])
+    ExpenseRowView(expense: .sampleData[0], currencySymbol: "")
 }

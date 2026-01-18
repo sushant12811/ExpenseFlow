@@ -16,11 +16,12 @@ struct ContentView: View {
 
     @State private var selectedFilter: FilteredOption = .all
     @State private var selectedCategory: CategoryFiltered = .all
-    @State private var selectedMode: ColorMode = .light
+    @AppStorage("selectedMode") private var selectedMode: ColorMode = .system
     @State private var showAddExpenseView: Bool = false
     @State private var showAlert: Bool = false
     @State private var selectCheckMark: Bool = false
-    @AppStorage("darkMode") private var darkMode: Bool = false
+    @AppStorage("infoHint") private var firstTimeInfoHint: Bool = true
+    @AppStorage("currency_unit") private var selectedCurrency: CurrencyUnit = .CAD
 
     enum FilteredOption: String, CaseIterable {
         case all = "All"
@@ -87,14 +88,11 @@ struct ContentView: View {
                             ExpenseView()
                         }
                     }
-
                     .alert("Delete All?", isPresented: $showAlert) {
-                        Button("Cancel") {
-                            showAlert = false
-                        }
-                        Button("Delete") {
+                        Button("Delete", role: .destructive) {
                             deleteAllExpenses(expense: expense)
                         }
+
                     } message: {
                         Text("Are you sure want to delete all?")
                     }
@@ -117,29 +115,41 @@ struct ContentView: View {
                                         }
                                     }
                                 }
-                                
                             }
                         }
                     }
+                
+                VStack(spacing: 20){
+                    if firstTimeInfoHint{
+                        Text("Add your first expense by tapping \"+\" below")
+                            .padding()
+                            .background(.gray.opacity(0.3))
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                            .pulseEffect()
+                            
+                    }
+                    
+                    Button {
+                        showAddExpenseView = true
+                        firstTimeInfoHint = false
 
-                Button {
-                    showAddExpenseView = true
-                } label: {
-                    Image(systemName: "plus")
-                        .font(.title).fontWeight(.semibold)
-                        .tint(.gray)
-                        .padding()
-                        .background(
-                            Circle()
-                                .fill(Color.primary)
-                                .shadow(color: .black.opacity(0.5), radius: 0.2)
-                        )
+                    } label: {
+                        Image(systemName: "plus")
+                            .font(.title).fontWeight(.semibold)
+                            .tint(.gray)
+                            .padding()
+                            .background(
+                                Circle()
+                                    .fill(Color.primary)
+                                    .shadow(color: .black.opacity(0.5), radius: 0.2)
+                            )
+                    }
                 }
 
             }
 
         }
-        .preferredColorScheme(darkMode ? .dark : .light)
+        .preferredColorScheme(selectedMode.colorScheme)
 
     }
 
@@ -152,7 +162,7 @@ struct ContentView: View {
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
 
-                Text("$\(totalAmount, specifier: "%.2f")")
+                Text("\(selectedCurrency.currSymbol) \(totalAmount, specifier: "%.2f")")
                     .font(.largeTitle)
                     .fontWeight(.bold)
 
@@ -195,7 +205,7 @@ struct ContentView: View {
                 List {
                     ForEach(filteredExpenses) { expense in
                         NavigationLink(value: expense) {
-                            ExpenseRowView(expense: expense)
+                            ExpenseRowView(expense: expense, currencySymbol: selectedCurrency.currSymbol)
                         }
                     }
                     .onDelete { index in

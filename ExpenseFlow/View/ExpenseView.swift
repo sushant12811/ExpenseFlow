@@ -13,10 +13,10 @@ struct ExpenseView: View {
 
     @State private var title : String = ""
     @State private var amountInput : String = ""
-    @State private var notes : String = ""
+    @State private var summaryText : String = ""
     @State private var selectedCategory: Category = .food
+    @AppStorage("currency_unit") private var selectedCurrency: CurrencyUnit = .CAD
     @State private var date : Date = Date()
-    @State private var text : String = ""
     @FocusState private var textInputFocus: Bool
     
 
@@ -28,6 +28,7 @@ struct ExpenseView: View {
         _amountInput = State(initialValue: expense.map { String($0.amount) } ?? "")
             _date = State(initialValue: expense?.date ?? Date())
         _selectedCategory = State(initialValue: expense?.category ?? .food)
+         _summaryText = State(initialValue: expense?.notes ?? "")
         }
     
     var body: some View {
@@ -36,15 +37,25 @@ struct ExpenseView: View {
                     TextField("Title", text: $title)
                         .focused($textInputFocus)
 
-                    
-                    TextField("Amount", text: $amountInput)
-                        .keyboardType(.decimalPad)
-                        .padding()
-                        .background(.opacity(0.1))
-                        .clipShape(.rect(cornerRadius: 8))
-                        .frame(maxWidth: 100)
-                        .multilineTextAlignment(.center)
-                        .focused($textInputFocus)
+                    HStack{
+                        TextField("Amount", text: $amountInput)
+                            .keyboardType(.decimalPad)
+                            .padding()
+                            .background(.opacity(0.1))
+                            .clipShape(.rect(cornerRadius: 8))
+                            .frame(maxWidth: 100)
+                            .multilineTextAlignment(.center)
+                            .focused($textInputFocus)
+                        
+                        Picker("Currency", selection: $selectedCurrency) {
+                            ForEach(CurrencyUnit.allCases, id: \.self) { unit in
+                                Text(unit.currencyFormat)
+                                    .tag(unit)
+                            }
+                        }
+                        .pickerStyle(.menu) 
+
+                    }
                         
                     DatePicker("Date", selection: $date, displayedComponents: .date)
                 }
@@ -62,7 +73,7 @@ struct ExpenseView: View {
                     .pickerStyle(.menu)
                 }
                 Section("Optional(Summary)"){
-                    TextEditor(text: $text)
+                    TextEditor(text: $summaryText)
                 }
             }
             .onTapGesture {
@@ -100,7 +111,7 @@ struct ExpenseView: View {
               expense.amount = finalAmount
               expense.category = selectedCategory
               expense.date = date
-              expense.notes = notes
+              expense.notes = summaryText
           } else {
               // Create new expense
               let newExpense = ExpenseModel(
@@ -108,7 +119,7 @@ struct ExpenseView: View {
                   amount: finalAmount,
                   category: selectedCategory,
                   date: date,
-                  notes: notes
+                  notes: summaryText
               )
               modelContext.insert(newExpense)
           }

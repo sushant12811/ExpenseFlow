@@ -5,20 +5,44 @@
 //  Created by Sushant Dhakal on 2025-10-17.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 @main
 struct ExpenseFlowApp: App {
+    @State private var showLunch: Bool = true
+    @Environment(\.verticalSizeClass) var vSize
+
     var body: some Scene {
         WindowGroup {
-        ContentView()
-                .tint(.primary)
+            if showLunch {
+                ZStack {
+                    Image("Logo")
+                        .resizable()
+                        .scaledToFit()
+                        .containerRelativeFrame(
+                            .horizontal,
+                            count: 10,
+                            span: 2,
+                            spacing: 0
+                        )
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                }
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        withAnimation {
+                            showLunch = false
+                        }
+                    }
+                }
+            } else {
 
-           }
-              .modelContainer(for: ExpenseModel.self)
+                ContentView()
+                    .tint(.primary)
 
-              
-          }
+            }
+
         }
-
+        .modelContainer(for: ExpenseModel.self)
+    }
+}

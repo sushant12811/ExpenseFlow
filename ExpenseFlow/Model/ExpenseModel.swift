@@ -31,6 +31,32 @@ class ExpenseModel{
     ]
 }
 
+enum CurrencyUnit: String, CaseIterable {
+    case CAD, USD, EUR, GBP, INR, JPY, SEK, ZAR, NPR
+    
+    
+    var currSymbol: String{
+        switch self{
+        case .NPR: return "रू"
+            
+        default :
+                let formatter = NumberFormatter()
+                formatter.locale = Locale.current
+                formatter.numberStyle = .currency
+                formatter.currencyCode = self.rawValue
+                
+                return formatter.currencySymbol ?? self.rawValue
+        }
+        
+    }
+    
+    var currencyFormat: String{
+        let name = self.rawValue
+        return "\(name)(\(currSymbol))"
+    }
+        
+}
+
 enum Category: String, CaseIterable, Codable, Hashable{
 
     case food = "Food"
@@ -97,6 +123,7 @@ enum CategoryFiltered :CaseIterable, Hashable{
 enum ColorMode: String, CaseIterable, Codable, Hashable{
     case light
     case dark
+    case system
     
     var icon: String {
         switch self{
@@ -104,6 +131,16 @@ enum ColorMode: String, CaseIterable, Codable, Hashable{
             "sun.max.fill"
         case .dark:
             "moon.stars.fill"
+        case .system:
+            "circle.lefthalf.filled"
+        }
+    }
+    
+    var colorScheme: ColorScheme? {
+        switch self {
+        case .light: return .light
+        case .dark: return .dark
+        case .system: return .none
         }
     }
 }
