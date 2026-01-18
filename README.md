@@ -19,20 +19,11 @@
  ## ScreenShots
  <table>
  <tr>
-  <td><img width="300" height="600" alt="1" src="https://github.com/user-attachments/assets/3003ec29-674a-465a-b2ec-2ade00301a98"  />
-</td>
- 
-  <td><img width="300" height="600" alt= "2" src="https://github.com/user-attachments/assets/eda4b347-e5f8-4e50-83e9-18fbdcf0f4a7" />
-  />
-    <td><img width="300" height="600" alt="3" src="https://github.com/user-attachments/assets/f8536cf8-acd4-4477-b00b-bd1b08f24716" />
- />
-</td>
-</td>
-  <td><img width="300" height="600" alt="4" src="https://github.com/user-attachments/assets/0c92a918-2533-4de5-884f-46be46affcbd" />
-</td>
-
+  <td><img width="300" height="600" alt="1" src="https://github.com/user-attachments/assets/3003ec29-674a-465a-b2ec-2ade00301a98"  /></td>
+  <td><img width="300" height="600" alt= "2" src="https://github.com/user-attachments/assets/eda4b347-e5f8-4e50-83e9-18fbdcf0f4a7" /></td>
+ <td><img width="300" height="600" alt="3" src="https://github.com/user-attachments/assets/f8536cf8-acd4-4477-b00b-bd1b08f24716" /></td>
+  <td><img width="300" height="600" alt="4" src="https://github.com/user-attachments/assets/0c92a918-2533-4de5-884f-46be46affcbd" /></td>
  </tr>
-  
  </table>
 
 ## Installation
