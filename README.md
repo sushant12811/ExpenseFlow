@@ -1,4 +1,4 @@
-<img width="1242" height="2688" alt="6" src="https://github.com/user-attachments/assets/82d9edb6-eec3-4d52-89e1-83cb1e06454a" /><img width="1242" height="2688" alt="3" src="https://github.com/user-attachments/assets/ff2d8ab3-5a7a-40e5-b694-322494b2fe5d" /># Spendora - App for expense tracker
+# Spendora - App for expense tracker
 
 ## Description
  Spendora app works as a tracker for the user who is interested in tracking down their money spend every days, weeks or months and years.
